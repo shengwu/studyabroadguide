@@ -3864,3 +3864,7 @@ body.vjs-full-window {
 .mal {
   margin-left: 20px;
 }
+
+html {
+    overflow-y: scroll;
+}

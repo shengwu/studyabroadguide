@@ -1,4 +1,5 @@
 {% load asset %}
+{% load util %}
 {% load staticfiles %}
 <!DOCTYPE html>
 <html lang="en">
@@ -38,31 +39,31 @@
               <div class="container">
                 <div class="nav-collapse collapse" id="nav-collapse-01">
                   <ul class="nav">
-                    <li>
+                    <li {{ request.path|menu_active:'overview'|safe }}>
                     <a href="/{{ place.slug }}/overview/">Overview</a>
                     </li>
-                    <li>
+                    <li {{ request.path|menu_active:'study'|safe }}>
                     <a href="/{{ place.slug }}/study/">Study</a>
                     </li>
-                    <li class="active">
+                    <li {{ request.path|menu_active:'eat'|safe }}>
                     <a href="/{{ place.slug }}/eat/">Eat</a>
                     </li>
-                    <li>
+                    <li {{ request.path|menu_active:'play'|safe }}>
                     <a href="/{{ place.slug }}/play/">Play</a>
                     </li>
-                    <li>
+                    <li {{ request.path|menu_active:'do'|safe }}>
                     <a href="/{{ place.slug }}/do/">Do</a>
                     </li>
-                    <li>
+                    <li {{ request.path|menu_active:'tips'|safe }}>
                     <a href="/{{ place.slug }}/tips/">Tips</a>
                     </li>
-                    <li>
+                    <li {{ request.path|menu_active:'travel'|safe }}>
                     <a href="/{{ place.slug }}/travel/">Travel</a>
                     </li>
-                    <li>
+                    <li {{ request.path|menu_active:'weekend'|safe }}>
                     <a href="/{{ place.slug }}/weekend/">London in a Weekend</a>
                     </li>
-                    <li>
+                    <li {{ request.path|menu_active:'contribute'|safe }}>
                     <a href="/{{ place.slug }}/contribute/">Contribute</a>
                     </li>
                   </ul>
