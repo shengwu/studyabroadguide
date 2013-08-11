@@ -4,7 +4,7 @@ from django.template import RequestContext
 from models import *
 
 def home(request):
-    return render_to_response('base.html')
+    return render_to_response('homepage.html')
 
 def overview(request, place_slug):
     place = Place.objects.get(slug=place_slug)
