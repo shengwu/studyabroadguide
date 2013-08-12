@@ -47,15 +47,6 @@ USE_L10N = True
 # If you set this to False, Django will not use timezone-aware datetimes.
 USE_TZ = True
 
-# Absolute filesystem path to the directory that will hold user-uploaded files.
-# Example: "/var/www/example.com/media/"
-MEDIA_ROOT = '/Users/sheng/studyabroad/static/'
-
-# URL that handles the media served from MEDIA_ROOT. Make sure to use a
-# trailing slash.
-# Examples: "http://example.com/media/", "http://media.example.com/"
-MEDIA_URL = ''
-
 # Append #from_asset_tag to static files included with {% asset %}
 MEDIA_ASSET_BUST_CACHE_TEST = True
 
@@ -74,6 +65,9 @@ import os
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 STATIC_ROOT = 'staticfiles'
 STATIC_URL = '/static/'
+MEDIA_ROOT = os.path.join(BASE_DIR, '../static')
+MEDIA_URL = '/media/'
+
 
 # Additional locations of static files
 STATICFILES_DIRS = (
