@@ -43,3 +43,5 @@ Thumbs.db
 *.pyc
 local_settings.py
 *.sw?
+staticfiles
+venv
