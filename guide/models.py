@@ -7,7 +7,8 @@ class Place(models.Model):
     slug = models.SlugField()
 
     def save(self, *args, **kwargs):
-        self.slug = slugify(self.name)
+        if not self.slug:
+            self.slug = slugify(self.name)
         super(Place, self).save(*args, **kwargs)
 
 class Photo(models.Model):
