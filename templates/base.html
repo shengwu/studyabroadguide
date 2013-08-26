@@ -9,21 +9,25 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     {% asset "css/bootstrap.css" %}
+    {% asset "css/style.css" %}
 
     <link rel="shortcut icon" href="{% static 'images/favicon.ico' %}">
   </head>
   <body>
     <div class="container">
-      <div class="span3 pull-right">
-        <input type="text" class="form-control" value="" placeholder="Find your destination" class="span3" />
+      <div class="row header">
+        <div class="col-sm-6 col-md-9">
+          <h1>Northwestern Study Abroad Guide</h1>
+          <p class="lead">an unofficial guide to studying abroad brought to you by ASG</p>
+        </div>
+        <div class="col-sm-6 col-md-3">
+          <input type="text" class="form-control" value="" placeholder="Find your destination" class="span3" />
+        </div>
       </div>
 
-      <h1>Northwestern Study Abroad Guide</h1>
-      <h2>an unofficial guide to studying abroad brought to you by ASG</h2>
-
-      <div class="row demo-row">
-        <div class="span12">
-          <div class="navbar">
+      <div class="row">
+        <div class="col-sm-12">
+          <div class="navbar navbar-default">
             <ul class="nav navbar-nav">
               <li {{ request.path|menu_active:'overview'|safe }}>
               <a href="/{{ place.slug }}/overview/">Overview</a>
@@ -56,37 +60,35 @@
           </div><!--/.nav -->
         </div>
       </div> <!-- /row -->
+
     {% block content %}
       <p>This is the base template.</p>
     {% endblock %}
-    </div><!-- /container -->
 
-    <footer>
-      <div class="container">
-        <div class="row">
-          <div class="span7">
-            <h3 class="footer-title">Study Abroad Guide 2013</h3>
+      <div class="row footer">
+        <div class="col-md-7">
+          <h3 class="footer-title">Study Abroad Guide 2013</h3>
 
-            <a class="footer-brand" href="http://asg.northwestern.edu" target="_blank">
-              <img src="https://asg.northwestern.edu/sites/asg/themes/asg/logo.png" alt="Designmodo.com" />
-            </a>
-          </div> <!-- /span8 -->
+          <a class="footer-brand" href="http://asg.northwestern.edu" target="_blank">
+            <img src="https://asg.northwestern.edu/sites/asg/themes/asg/logo.png" alt="Designmodo.com" />
+          </a>
+        </div>
 
-          <div class="span5">
-            <div class="footer-banner">
-              <h3 class="footer-title">Other ASG services</h3>
-              <ul>
-                <li>Campus Voice</li>
-                <li>BookSwap</li>
-                <li>JobCat</li>
-                <li>CabCorner</li>
-              </ul>
-              Explore them at <a href="http://asg.northwestern.edu" target="_blank">asg.northwestern.edu</a>.
-            </div>
+        <div class="col-md-5">
+          <div class="footer-banner">
+            <h3 class="footer-title">Other ASG services</h3>
+            <ul>
+              <li>Campus Voice</li>
+              <li>BookSwap</li>
+              <li>JobCat</li>
+              <li>CabCorner</li>
+            </ul>
+            Explore them at <a href="http://asg.northwestern.edu" target="_blank">asg.northwestern.edu</a>.
           </div>
         </div>
       </div>
-    </footer>
+    </div><!-- /container -->
+
     
     <!-- Load JS here for greater good =============================-->
     {% asset "js/jquery-1.10.2.min.js" %}
