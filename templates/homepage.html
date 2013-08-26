@@ -21,6 +21,7 @@
 </head>
 <body>
 {% asset 'js/d3.min.js' %}
+{% asset 'js/d3.geo.projection.min.js' %}
 {% asset 'js/topojson.min.js' %}
 <script type="text/javascript">
 var width = 960,
@@ -31,20 +32,17 @@ var svg = d3.select("body").append("svg")
             .attr('height', height);
 
 /* JavaScript goes here. */
-d3.json('/static/world.json', function(error, world) {
-    var subunits = topojson.feature(world, world.objects.subunits);
-    var projection = d3.geo.mercator()
-                           .scale(120)
-                           .translate([width/2, height/1.5]);
+d3.json('/static/continents-topojson.json', function(error, continents) {
+    var subunits = topojson.feature(continents, continents.objects.layer1);
+    var projection = d3.geo.times()
+                           .rotate([-11.4])
+                           .scale(180)
     var path = d3.geo.path()
                      .projection(projection);
-    svg.append('path')
-       .datum(subunits)
-       .attr('d', path);
 
-    /* countries */
+    /* draw continents */
     svg.selectAll('.subunit')
-        .data(topojson.feature(world, world.objects.subunits).features)
+        .data(subunits.features)
       .enter().append('path') 
         .attr('class', 'subunit')
         .attr('d', path);
